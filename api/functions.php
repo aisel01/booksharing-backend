@@ -4,7 +4,6 @@ function e404($message) {
     $response = [
         'message' => $message
     ];
-
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
     exit();
 }
@@ -13,7 +12,6 @@ function response200($message = 'ok') {
     $response = [
         'message' => $message
     ];
-
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
     exit();        
 }
@@ -21,5 +19,11 @@ function response200($message = 'ok') {
 function extractById($id, $rows) {
     foreach ($rows as $value) {
         if($value['id'] == $id) return $value;
+    }
+}
+
+function get_isbn_13($ids) {
+    foreach($ids as $isbn) {
+        if ($isbn->type === 'ISBN_13') return $isbn->identifier;
     }
 }
