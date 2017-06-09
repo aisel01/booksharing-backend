@@ -17,4 +17,10 @@ function response200($message = 'ok') {
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
     exit();        
 }
+
+function extractById($id, $rows) {
+    foreach ($rows as $value) {
+        if($value['id'] == $id) return $value;
+    }
+}
  ?>

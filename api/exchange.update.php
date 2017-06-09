@@ -5,12 +5,13 @@
 	$state = isset($_GET['state']) ? $_GET['state'] : null;
 
 	if($id && $state) {
-		$query = "UPDATE `exchanges` SET `state` = {$state} WHERE `id` = {$id}";
+		$query = "UPDATE `exchanges` SET `state` = '{$state}' WHERE `id` = '{$id}'";
+		echo $query;
 		$result = mysqli_query($link,$query);
 		if($result){
 			response200('Статус изменен');
 		} else {
-			e404('Не удалосьизменить статус');
+			e404('Не удалось изменить статус');
 		}
 	} else {
 		e404('Не введены данные');
