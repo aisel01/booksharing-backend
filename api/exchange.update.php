@@ -5,7 +5,7 @@
 	$state = isset($_GET['state']) ? $_GET['state'] : null;
 
 	if($id && $state) {
-		$query = "UPDATE `exchanges` SET `state` = {$state} WHERE `id` = {$id}";
+		$query = "UPDATE `exchanges` SET `state` = {$state} WHERE `id` = '{$id}'";
 		$result = mysqli_query($link,$query);
 		if($result){
 			response200('Статус изменен');
