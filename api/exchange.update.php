@@ -6,7 +6,7 @@
 
 	if($id && $state) {
 		$query = "UPDATE `exchanges` SET `state` = '{$state}' WHERE `id` = '{$id}'";
-		echo $query;
+
 		$result = mysqli_query($link,$query);
 		if($result){
 			response200('Статус изменен');

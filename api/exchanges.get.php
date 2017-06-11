@@ -27,7 +27,8 @@
 
 		$response[] = $pages;
 
-		$query = "SELECT * FROM `exchanges` WHERE (`origin_user_id`='{$user_id}' OR `target_user_id`='{$user_id}') LIMIT {$start}, " . ITEMS_PER_PAGE;
+		$query = "SELECT * FROM `exchanges` WHERE (`origin_user_id`='{$user_id}') OR (`target_user_id`='{$user_id}') LIMIT {$start}, " . ITEMS_PER_PAGE;
+
 		$exchanges = mysqli_query($link,$query);
 
 		while($row = mysqli_fetch_assoc($exchanges)) {
