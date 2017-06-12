@@ -32,4 +32,3 @@
 		e404('Не передали id');
 	}
 	echo json_encode($response, JSON_UNESCAPED_UNICODE);
- ?>

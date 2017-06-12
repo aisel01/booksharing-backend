@@ -23,4 +23,3 @@ function extractById($id, $rows) {
         if($value['id'] == $id) return $value;
     }
 }
- ?>
