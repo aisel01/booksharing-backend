@@ -25,14 +25,13 @@
 		    e404('Нет такой страницы');
 		}
 
-		$response[] = $pages;
-
 		$query = "SELECT * FROM `exchanges` WHERE (`origin_user_id`='{$user_id}') OR (`target_user_id`='{$user_id}') LIMIT {$start}, " . ITEMS_PER_PAGE;
 
-		$exchanges = mysqli_query($link,$query);
+		$result = mysqli_query($link,$query);
+		$exchanges = [];
 
-		while($row = mysqli_fetch_assoc($exchanges)) {
-
+		while($row = mysqli_fetch_assoc($result)) {
+			$curr_exch['id'] = $row['id'];
 			$curr_exch['state'] = $row['state'];
 
 			$query = "SELECT * FROM `users` WHERE `id` IN ('{$row['origin_user_id']}', '{$row['target_user_id']}')"; 
@@ -47,12 +46,14 @@
 			$curr_exch['target_book'] = extractById($row['target_book_id'],$books_result);
 			$curr_exch['origin_book'] = extractById($row['origin_book_id'],$books_result);
 
-			$response[] = $curr_exch;
+			$exchanges[] = $curr_exch;
 		} 
 
-		if(!$response) {
-			e404('У пользователя нет обменов');
-		}	
+		$response = [
+		    'total_pages' => $pages,
+		    'exchanges' => $exchanges
+		];
+		
 	} else {
 		e404('не передали user_id');
 	}
