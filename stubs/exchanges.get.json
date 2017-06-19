@@ -1,61 +1,61 @@
 {
-"total_pages": 2,
-"exchanges": [
-{
-"id": "1",
-"state": "завершен",
-"target_user": {
-"id": "2",
-"name": "scarlet",
-"image": "img/samples/scarlett-300.jpg"
-},
-"origin_user": {
-"id": "1",
-"name": "ryan",
-"image": "img/samples/ryan-300.jpg"
-},
-"target_book": {
-"id": "1",
-"user_id": "1",
-"isbn": "11-250-1155",
-"title": "Анна Каренина",
-"image": "img/samples/galaxy.jpg"
-},
-"origin_book": {
-"id": "2",
-"user_id": "2",
-"isbn": "158-250-1155",
-"title": "Алиса в Стране чудес",
-"image": "img/samples/galaxy.jpg"
-}
-},
-{
-"id": "2",
-"state": "в процессе",
-"target_user": {
-"id": "1",
-"name": "ryan",
-"image": "img/samples/ryan-300.jpg"
-},
-"origin_user": {
-"id": "2",
-"name": "scarlet",
-"image": "img/samples/scarlett-300.jpg"
-},
-"target_book": {
-"id": "1",
-"user_id": "1",
-"isbn": "11-250-1155",
-"title": "Анна Каренина",
-"image": "img/samples/galaxy.jpg"
-},
-"origin_book": {
-"id": "2",
-"user_id": "2",
-"isbn": "158-250-1155",
-"title": "Алиса в Стране чудес",
-"image": "img/samples/galaxy.jpg"
-}
-}
-]
+	"total_pages": 2,
+	"exchanges": [
+		{
+			"id": "1",
+			"state": "завершен",
+			"target_user": {
+				"id": "2",
+				"name": "scarlet",
+				"image": "img/samples/scarlett-300.jpg"
+			},
+			"origin_user": {
+				"id": "1",
+				"name": "ryan",
+				"image": "img/samples/ryan-300.jpg"
+			},
+			"target_book": {
+				"id": "1",
+				"user_id": "1",
+				"isbn": "11-250-1155",
+				"title": "Анна Каренина",
+				"image": "img/samples/galaxy.jpg"
+			},
+			"origin_book": {
+				"id": "2",
+				"user_id": "2",
+				"isbn": "158-250-1155",
+				"title": "Алиса в Стране чудес",
+				"image": "img/samples/galaxy.jpg"
+			}
+		},
+		{
+			"id": "2",
+			"state": "в процессе",
+			"target_user": {
+				"id": "1",
+				"name": "ryan",
+				"image": "img/samples/ryan-300.jpg"
+			},
+			"origin_user": {
+				"id": "2",
+				"name": "scarlet",
+				"image": "img/samples/scarlett-300.jpg"
+			},
+			"target_book": {
+				"id": "1",
+				"user_id": "1",
+				"isbn": "11-250-1155",
+				"title": "Анна Каренина",
+				"image": "img/samples/galaxy.jpg"
+			},
+			"origin_book": {
+				"id": "2",
+				"user_id": "2",
+				"isbn": "158-250-1155",
+				"title": "Алиса в Стране чудес",
+				"image": "img/samples/galaxy.jpg"
+			}
+		}
+	]
 }
