@@ -2,6 +2,8 @@
 	require_once('settings.php');
 	require_once('functions.php');
 
+	if (!isAuthed()) e404('не авторизован');
+
 	$origin_user_id = isset($_GET['origin_user_id']) ? $_GET['origin_user_id'] : null;
 	$target_user_id = isset($_GET['target_user_id']) ? $_GET['target_user_id'] : null;
 	

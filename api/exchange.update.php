@@ -1,6 +1,9 @@
 <?php 
 	require_once('settings.php');
 	require_once('functions.php');
+
+	if (!isAuthed()) e404('не авторизован');
+
 	$id = isset($_GET['id']) ? $_GET['id'] : null;
 	$state = isset($_GET['state']) ? $_GET['state'] : null;
 
