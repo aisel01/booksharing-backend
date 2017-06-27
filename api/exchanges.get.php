@@ -1,8 +1,10 @@
-<?php 
+<?php
 	require_once('settings.php');
 	require_once('functions.php');
 
-	define(ITEMS_PER_PAGE, 20);
+	if (!isAuthed()) e404('не авторизован');
+	
+	define('ITEMS_PER_PAGE', 20);
 
 	$user_id = (isset($_GET['user_id'])) ? $_GET['user_id'] : null;
 

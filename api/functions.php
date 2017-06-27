@@ -27,3 +27,29 @@ function get_isbn_13($ids) {
         if ($isbn->type === 'ISBN_13') return $isbn->identifier;
     }
 }
+
+function checkAuth($user, $password, $session = false) {
+    if (!$session) {
+        $password = md5($password);
+    }
+
+    $query_user = "SELECT * FROM `users` WHERE (`username` = '{$username}') AND (`password` = '{$password}')";
+    $result = mysqli_query($link, $query_user);
+        
+    if ($row = mysql_fetch_row($result)) {
+        return true;
+    }
+
+    return false;
+}
+
+function userAuthed() {
+    $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
+    $password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
+
+    if (checkAuth($username, $password, true)) {
+        return true;
+    } else {
+        return false;
+    }
+}

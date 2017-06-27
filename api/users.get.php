@@ -2,6 +2,8 @@
 require_once('settings.php');
 require_once('functions.php');
 
+if (!isAuthed()) e404('не авторизован');
+
 $query = 'SELECT * FROM `users`';
 
 $result = mysqli_query($link, $query);
