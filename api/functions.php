@@ -1,4 +1,4 @@
-<?php 
+<?php
 function e404($message) {
     header('HTTP/1.1 404 Not Found');
     $response = [
@@ -13,7 +13,7 @@ function response200($message = 'ok') {
         'message' => $message
     ];
     echo json_encode($response, JSON_UNESCAPED_UNICODE);
-    exit();        
+    exit();
 }
 
 function extractById($id, $rows) {
@@ -28,22 +28,24 @@ function get_isbn_13($ids) {
     }
 }
 
-function checkAuth($user, $password, $session = false) {
+function checkAuth($username, $password, $session = false) {
+    global $link;
+
     if (!$session) {
         $password = md5($password);
     }
 
     $query_user = "SELECT * FROM `users` WHERE (`username` = '{$username}') AND (`password` = '{$password}')";
     $result = mysqli_query($link, $query_user);
-        
-    if ($row = mysql_fetch_row($result)) {
+
+    if ($row = mysqli_fetch_row($result)) {
         return true;
     }
 
     return false;
 }
 
-function userAuthed() {
+function isAuthed() {
     $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
     $password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
 
