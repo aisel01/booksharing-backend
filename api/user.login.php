@@ -9,8 +9,9 @@ if (($username !== null)&&($password !== null)) {
     if (checkAuth($username, $password)) {
         $password = md5($password);
 
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
+        setcookie('username', $username, time() + 3600);
+        setcookie('password', $password, time() + 3600);
+        
         response200([
             'password' => $password
         ]);

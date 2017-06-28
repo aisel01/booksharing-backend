@@ -1,4 +1,7 @@
 <?php
+session_start();
+mysqli_set_charset($link, "utf8");
+
 function e404($message) {
     header('HTTP/1.1 404 Not Found');
     $response = [
@@ -38,22 +41,29 @@ function checkAuth($username, $password, $session = false) {
     $query_user = "SELECT * FROM `users` WHERE (`username` = '{$username}') AND (`password` = '{$password}')";
     $result = mysqli_query($link, $query_user);
 
-    if ($row = mysqli_fetch_row($result)) {
-        return true;
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row['id'];
     }
 
     return false;
 }
 
 function isAuthed() {
-    $username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
-    $password = isset($_SESSION['password']) ? $_SESSION['password'] : null;
+    $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : null;
+    $password = isset($_COOKIE['password']) ? $_COOKIE['password'] : null;
 
     if (checkAuth($username, $password, true)) {
         return true;
     } else {
         return false;
     }
+}
+
+function getCurrentUserId() {
+    $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : null;
+    $password = isset($_COOKIE['password']) ? $_COOKIE['password'] : null;
+
+    return checkAuth($username, $password, true);
 }
 
 function cors() {
