@@ -14,5 +14,5 @@ $database = trim(fgets(STDIN));
 $text = "<?php
 	\$link = mysqli_connect('$host', '$user', '$password', '$database');";
 
-$fp = fopen("api\settings.php", "w");
+$fp = fopen("api" . DIRECTORY_SEPARATOR . "settings.php", "w");
 fwrite($fp, $text);
