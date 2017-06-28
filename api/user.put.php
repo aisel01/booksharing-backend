@@ -21,7 +21,7 @@ if (isAuthed()) {
     $query_user = "SELECT * FROM `users` WHERE `username` = '{$username}'";
     $result = mysqli_query($link, $query_user);
     
-    if ($row = mysql_fetch_row($result)) {
+    if ($row = mysqli_fetch_row($result)) {
         e404('Такой пользователь уже существует');
     } else {
         $query = "INSERT INTO `users` (`id`, `username`, `password`) VALUES (NULL, '{$username}', '{$password}');";
